@@ -1,9 +1,8 @@
-
+import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { TooltipProvider } from "@/components/ui/tooltip";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // Pages
 import Index from "./pages/Index";
@@ -33,6 +32,12 @@ import UserManagement from "./pages/admin/UserManagement";
 import ComplianceMonitoring from "./pages/admin/ComplianceMonitoring";
 import Reports from "./pages/admin/Reports";
 import MarketControls from "./pages/admin/MarketControls";
+
+// Legal Pages
+import PrivacyPolicy from "./pages/legal/PrivacyPolicy";
+import TermsOfService from "./pages/legal/TermsOfService";
+import Compliance from "./pages/legal/Compliance";
+import CookiePolicy from "./pages/legal/CookiePolicy";
 
 const queryClient = new QueryClient();
 
@@ -70,6 +75,12 @@ const App = () => (
           <Route path="/admin/compliance" element={<ComplianceMonitoring />} />
           <Route path="/admin/reports" element={<Reports />} />
           <Route path="/admin/market-controls" element={<MarketControls />} />
+          
+          {/* Legal Routes */}
+          <Route path="/legal/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/legal/terms-of-service" element={<TermsOfService />} />
+          <Route path="/legal/compliance" element={<Compliance />} />
+          <Route path="/legal/cookie-policy" element={<CookiePolicy />} />
           
           {/* Catch-all 404 Route */}
           <Route path="*" element={<NotFound />} />
