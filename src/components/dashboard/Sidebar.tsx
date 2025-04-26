@@ -4,18 +4,20 @@ import { Link, useLocation } from 'react-router-dom';
 import { cn } from '@/lib/utils';
 import { 
   BarChart3, 
-  Home, 
-  User, 
-  Briefcase, 
-  Settings, 
-  FileText, 
-  Users, 
-  Shield, 
-  AlertTriangle, 
-  FilePlus, 
-  List, 
-  Building, 
-  CheckSquare
+  Home,
+  User,
+  Briefcase,
+  Settings,
+  FileText,
+  Users,
+  Shield,
+  AlertTriangle,
+  FilePlus,
+  List,
+  Building,
+  CheckSquare,
+  Wallet,
+  FileCheck
 } from 'lucide-react';
 
 interface SidebarProps {
@@ -32,26 +34,26 @@ const InvestorNavItems: NavItem[] = [
   { label: 'Dashboard', href: '/investor', icon: Home },
   { label: 'Investments', href: '/investor/investments', icon: BarChart3 },
   { label: 'My Portfolio', href: '/investor/portfolio', icon: Briefcase },
-  { label: 'KYC & Suitability', href: '/investor/kyc', icon: CheckSquare },
-  { label: 'Wallet & Settings', href: '/investor/settings', icon: Settings },
-  { label: 'My Advisor', href: '/investor/advisor', icon: User },
+  { label: 'KYC & Suitability', href: '/investor/kyc-suitability', icon: CheckSquare },
+  { label: 'Wallet & Settings', href: '/investor/wallet-settings', icon: Wallet },
+  { label: 'My Advisor', href: '/investor/my-advisor', icon: User },
 ];
 
 const AdvisorNavItems: NavItem[] = [
   { label: 'Dashboard', href: '/advisor', icon: Home },
-  { label: 'Submit New Listing', href: '/advisor/new-listing', icon: FilePlus },
-  { label: 'Manage Listings', href: '/advisor/listings', icon: List },
-  { label: 'Client Management', href: '/advisor/clients', icon: Users },
-  { label: 'Office & Team', href: '/advisor/team', icon: Building },
+  { label: 'Submit New Listing', href: '/advisor/submit-listing', icon: FilePlus },
+  { label: 'Manage Listings', href: '/advisor/manage-listings', icon: List },
+  { label: 'Client Management', href: '/advisor/client-management', icon: Users },
+  { label: 'Office & Team', href: '/advisor/office-management', icon: Building },
 ];
 
 const AdminNavItems: NavItem[] = [
   { label: 'Dashboard', href: '/admin', icon: Home },
-  { label: 'Listings Approval', href: '/admin/listings', icon: CheckSquare },
-  { label: 'User Management', href: '/admin/users', icon: Users },
+  { label: 'Listings Approval', href: '/admin/listings-approval', icon: FileCheck },
+  { label: 'User Management', href: '/admin/user-management', icon: Users },
   { label: 'Compliance', href: '/admin/compliance', icon: Shield },
   { label: 'Reports', href: '/admin/reports', icon: FileText },
-  { label: 'Market Controls', href: '/admin/controls', icon: AlertTriangle },
+  { label: 'Market Controls', href: '/admin/market-controls', icon: AlertTriangle },
 ];
 
 const Sidebar = ({ type }: SidebarProps) => {
@@ -82,7 +84,11 @@ const Sidebar = ({ type }: SidebarProps) => {
     <div className="h-screen flex flex-col bg-white dark:bg-sidebar border-r w-64 py-6">
       <div className="px-4 mb-6">
         <Link to="/" className="flex items-center gap-2">
-          <img src="/lovable-uploads/a4e8a2e3-3a93-473d-98de-64d6a950fe4d.png" alt="NSE Logo" className="h-8" />
+          <img 
+            src="https://raw.githubusercontent.com/devopenledger/openledger-assets/main/Logo-NSE.png" 
+            alt="NSE Logo" 
+            className="h-8" 
+          />
           <span className="font-semibold text-lg">{title}</span>
         </Link>
       </div>

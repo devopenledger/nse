@@ -4,13 +4,35 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+// Pages
 import Index from "./pages/Index";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import InvestorDashboard from "./pages/investor/InvestorDashboard";
-import AdvisorDashboard from "./pages/advisor/AdvisorDashboard";
-import AdminDashboard from "./pages/admin/AdminDashboard";
 import NotFound from "./pages/NotFound";
+
+// Investor Pages
+import InvestorDashboard from "./pages/investor/InvestorDashboard";
+import Investments from "./pages/investor/Investments";
+import Portfolio from "./pages/investor/Portfolio";
+import KycSuitability from "./pages/investor/KycSuitability";
+import WalletSettings from "./pages/investor/WalletSettings";
+import MyAdvisor from "./pages/investor/MyAdvisor";
+
+// Advisor Pages
+import AdvisorDashboard from "./pages/advisor/AdvisorDashboard";
+import SubmitListing from "./pages/advisor/SubmitListing";
+import ManageListings from "./pages/advisor/ManageListings";
+import ClientManagement from "./pages/advisor/ClientManagement";
+import OfficeManagement from "./pages/advisor/OfficeManagement";
+
+// Admin Pages
+import AdminDashboard from "./pages/admin/AdminDashboard";
+import ListingsApproval from "./pages/admin/ListingsApproval";
+import UserManagement from "./pages/admin/UserManagement";
+import ComplianceMonitoring from "./pages/admin/ComplianceMonitoring";
+import Reports from "./pages/admin/Reports";
+import MarketControls from "./pages/admin/MarketControls";
 
 const queryClient = new QueryClient();
 
@@ -28,15 +50,26 @@ const App = () => (
           
           {/* Investor Routes */}
           <Route path="/investor" element={<InvestorDashboard />} />
-          <Route path="/investor/*" element={<InvestorDashboard />} />
+          <Route path="/investor/investments" element={<Investments />} />
+          <Route path="/investor/portfolio" element={<Portfolio />} />
+          <Route path="/investor/kyc-suitability" element={<KycSuitability />} />
+          <Route path="/investor/wallet-settings" element={<WalletSettings />} />
+          <Route path="/investor/my-advisor" element={<MyAdvisor />} />
           
           {/* Advisor Routes */}
           <Route path="/advisor" element={<AdvisorDashboard />} />
-          <Route path="/advisor/*" element={<AdvisorDashboard />} />
+          <Route path="/advisor/submit-listing" element={<SubmitListing />} />
+          <Route path="/advisor/manage-listings" element={<ManageListings />} />
+          <Route path="/advisor/client-management" element={<ClientManagement />} />
+          <Route path="/advisor/office-management" element={<OfficeManagement />} />
           
           {/* Admin Routes */}
           <Route path="/admin" element={<AdminDashboard />} />
-          <Route path="/admin/*" element={<AdminDashboard />} />
+          <Route path="/admin/listings-approval" element={<ListingsApproval />} />
+          <Route path="/admin/user-management" element={<UserManagement />} />
+          <Route path="/admin/compliance" element={<ComplianceMonitoring />} />
+          <Route path="/admin/reports" element={<Reports />} />
+          <Route path="/admin/market-controls" element={<MarketControls />} />
           
           {/* Catch-all 404 Route */}
           <Route path="*" element={<NotFound />} />
