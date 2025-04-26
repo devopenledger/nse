@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import DashboardLayout from '@/components/dashboard/DashboardLayout';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
@@ -58,7 +57,7 @@ const MarketControls = () => {
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
                   <span className="text-sm font-medium">Current State:</span>
-                  <Badge variant={marketState === 'Active' ? 'success' : 'destructive'}>
+                  <Badge variant={marketState === 'Active' ? 'default' : 'destructive'}>
                     {marketState}
                   </Badge>
                 </div>
@@ -81,7 +80,7 @@ const MarketControls = () => {
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
                   <span className="text-sm font-medium">Current Status:</span>
-                  <Badge variant={circuitBreaker === 'Active' ? 'destructive' : 'success'}>
+                  <Badge variant={circuitBreaker === 'Active' ? 'destructive' : 'default'}>
                     {circuitBreaker}
                   </Badge>
                 </div>
@@ -120,8 +119,8 @@ const MarketControls = () => {
                     <TableCell>{tx.description}</TableCell>
                     <TableCell>
                       <Badge variant={
-                        tx.status === 'Resolved' ? 'success' :
-                        tx.status === 'Investigating' ? 'destructive' : 'warning'
+                        tx.status === 'Resolved' ? 'default' :
+                        tx.status === 'Investigating' ? 'destructive' : 'secondary'
                       }>
                         {tx.status}
                       </Badge>
