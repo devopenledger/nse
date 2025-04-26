@@ -61,7 +61,7 @@ const ComplianceMonitoring = () => {
                   <TableCell>
                     <Badge variant={
                       alert.severity === 'High' ? 'destructive' :
-                      alert.severity === 'Medium' ? 'warning' : 'success'
+                      alert.severity === 'Medium' ? 'secondary' : 'outline'
                     }>
                       {alert.severity}
                     </Badge>

@@ -4,7 +4,7 @@ import DashboardLayout from '@/components/dashboard/DashboardLayout';
 import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from '@/components/ui/table';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { trash2 as Trash2, edit as Edit } from 'lucide-react';
+import { Trash2, Edit } from 'lucide-react';
 import { toast } from 'sonner';
 
 // Mock data for users
@@ -90,7 +90,7 @@ const UserManagement = () => {
                   <TableCell>{user.email}</TableCell>
                   <TableCell>
                     <Badge
-                      variant={user.status === 'Active' ? 'success' : 'destructive'}
+                      variant={user.status === 'Active' ? 'default' : 'destructive'}
                       className="cursor-pointer"
                       onClick={() => handleToggleStatus(user.id)}
                     >

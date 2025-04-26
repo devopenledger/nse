@@ -3,7 +3,7 @@ import React from 'react';
 import DashboardLayout from '@/components/dashboard/DashboardLayout';
 import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from '@/components/ui/table';
 import { Button } from '@/components/ui/button';
-import { download as Download } from 'lucide-react';
+import { Download } from 'lucide-react';
 
 const mockReports = [
   {

@@ -78,7 +78,7 @@ const ListingsApproval = () => {
                   <TableCell>{listing.submissionDate}</TableCell>
                   <TableCell>
                     <Badge variant={
-                      listing.status === 'Approved' ? 'success' :
+                      listing.status === 'Approved' ? 'default' :
                       listing.status === 'Rejected' ? 'destructive' : 'outline'
                     }>
                       {listing.status}
