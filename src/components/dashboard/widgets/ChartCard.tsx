@@ -26,6 +26,7 @@ interface ChartCardProps {
   dataKey?: string;
   categories?: string[];
   heightClass?: string;
+  height?: number; // Added height property
 }
 
 const defaultColors = ['#00D1A3', '#4EEAC7', '#00A380', '#3182CE', '#2B6CB0', '#1A202C'];
@@ -38,8 +39,12 @@ const ChartCard = ({
   colors = defaultColors, 
   dataKey,
   categories,
-  heightClass = "h-80"
+  heightClass = "h-80",
+  height // Accepting the height prop
 }: ChartCardProps) => {
+  
+  // Use height to set a specific height if provided, otherwise use heightClass for responsive height
+  const containerStyle = height ? { height: `${height}px` } : {};
   
   const renderChart = () => {
     switch (type) {
@@ -157,7 +162,7 @@ const ChartCard = ({
         <CardTitle className="text-lg font-medium">{title}</CardTitle>
         {subtitle && <p className="text-sm text-muted-foreground">{subtitle}</p>}
       </CardHeader>
-      <CardContent className={heightClass}>
+      <CardContent className={height ? "" : heightClass} style={containerStyle}>
         {renderChart()}
       </CardContent>
     </Card>
