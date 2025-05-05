@@ -17,7 +17,10 @@ import {
   Building,
   CheckSquare,
   Wallet,
-  FileCheck
+  FileCheck,
+  Bell,
+  HelpCircle,
+  BookOpen
 } from 'lucide-react';
 
 interface SidebarProps {
@@ -37,6 +40,9 @@ const InvestorNavItems: NavItem[] = [
   { label: 'KYC & Suitability', href: '/investor/kyc-suitability', icon: CheckSquare },
   { label: 'Wallet & Settings', href: '/investor/wallet-settings', icon: Wallet },
   { label: 'My Advisor', href: '/investor/my-advisor', icon: User },
+  { label: 'Notifications', href: '/investor/notifications', icon: Bell },
+  { label: 'Documents', href: '/investor/documents', icon: FileText },
+  { label: 'Help Center', href: '/investor/help-center', icon: HelpCircle },
 ];
 
 const AdvisorNavItems: NavItem[] = [
@@ -45,6 +51,7 @@ const AdvisorNavItems: NavItem[] = [
   { label: 'Manage Listings', href: '/advisor/manage-listings', icon: List },
   { label: 'Client Management', href: '/advisor/client-management', icon: Users },
   { label: 'Office & Team', href: '/advisor/office-management', icon: Building },
+  { label: 'Analytics', href: '/advisor/analytics', icon: BarChart3 },
 ];
 
 const AdminNavItems: NavItem[] = [
@@ -54,6 +61,7 @@ const AdminNavItems: NavItem[] = [
   { label: 'Compliance', href: '/admin/compliance', icon: Shield },
   { label: 'Reports', href: '/admin/reports', icon: FileText },
   { label: 'Market Controls', href: '/admin/market-controls', icon: AlertTriangle },
+  { label: 'System Settings', href: '/admin/system-settings', icon: Settings },
 ];
 
 const Sidebar = ({ type }: SidebarProps) => {

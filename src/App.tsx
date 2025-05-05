@@ -1,3 +1,4 @@
+
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -17,6 +18,9 @@ import Portfolio from "./pages/investor/Portfolio";
 import KycSuitability from "./pages/investor/KycSuitability";
 import WalletSettings from "./pages/investor/WalletSettings";
 import MyAdvisor from "./pages/investor/MyAdvisor";
+import Notifications from "./pages/investor/Notifications";
+import Documents from "./pages/investor/Documents";
+import HelpCenter from "./pages/investor/HelpCenter";
 
 // Advisor Pages
 import AdvisorDashboard from "./pages/advisor/AdvisorDashboard";
@@ -24,6 +28,7 @@ import SubmitListing from "./pages/advisor/SubmitListing";
 import ManageListings from "./pages/advisor/ManageListings";
 import ClientManagement from "./pages/advisor/ClientManagement";
 import OfficeManagement from "./pages/advisor/OfficeManagement";
+import Analytics from "./pages/advisor/Analytics";
 
 // Admin Pages
 import AdminDashboard from "./pages/admin/AdminDashboard";
@@ -32,6 +37,7 @@ import UserManagement from "./pages/admin/UserManagement";
 import ComplianceMonitoring from "./pages/admin/ComplianceMonitoring";
 import Reports from "./pages/admin/Reports";
 import MarketControls from "./pages/admin/MarketControls";
+import SystemSettings from "./pages/admin/SystemSettings";
 
 // Legal Pages
 import PrivacyPolicy from "./pages/legal/PrivacyPolicy";
@@ -60,6 +66,9 @@ const App = () => (
           <Route path="/investor/kyc-suitability" element={<KycSuitability />} />
           <Route path="/investor/wallet-settings" element={<WalletSettings />} />
           <Route path="/investor/my-advisor" element={<MyAdvisor />} />
+          <Route path="/investor/notifications" element={<Notifications />} />
+          <Route path="/investor/documents" element={<Documents />} />
+          <Route path="/investor/help-center" element={<HelpCenter />} />
           
           {/* Advisor Routes */}
           <Route path="/advisor" element={<AdvisorDashboard />} />
@@ -67,6 +76,7 @@ const App = () => (
           <Route path="/advisor/manage-listings" element={<ManageListings />} />
           <Route path="/advisor/client-management" element={<ClientManagement />} />
           <Route path="/advisor/office-management" element={<OfficeManagement />} />
+          <Route path="/advisor/analytics" element={<Analytics />} />
           
           {/* Admin Routes */}
           <Route path="/admin" element={<AdminDashboard />} />
@@ -75,6 +85,7 @@ const App = () => (
           <Route path="/admin/compliance" element={<ComplianceMonitoring />} />
           <Route path="/admin/reports" element={<Reports />} />
           <Route path="/admin/market-controls" element={<MarketControls />} />
+          <Route path="/admin/system-settings" element={<SystemSettings />} />
           
           {/* Legal Routes */}
           <Route path="/legal/privacy-policy" element={<PrivacyPolicy />} />
