@@ -36,7 +36,7 @@ interface NavItem {
 
 const InvestorNavItems: NavItem[] = [
   { label: 'Dashboard', href: '/investor', icon: Home },
-  { label: 'Investments', href: '/investor/investments', icon: BarChart3 },
+  { label: 'Initial Offers', href: '/investor/investments', icon: BarChart3 },
   { label: 'Secondary Market', href: '/investor/secondary-market', icon: TrendingUp },
   { label: 'My Portfolio', href: '/investor/portfolio', icon: Briefcase },
   { label: 'KYC & Suitability', href: '/investor/kyc-suitability', icon: CheckSquare },
