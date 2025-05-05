@@ -20,7 +20,8 @@ import {
   FileCheck,
   Bell,
   HelpCircle,
-  BookOpen
+  BookOpen,
+  TrendingUp
 } from 'lucide-react';
 
 interface SidebarProps {
@@ -36,6 +37,7 @@ interface NavItem {
 const InvestorNavItems: NavItem[] = [
   { label: 'Dashboard', href: '/investor', icon: Home },
   { label: 'Investments', href: '/investor/investments', icon: BarChart3 },
+  { label: 'Secondary Market', href: '/investor/secondary-market', icon: TrendingUp },
   { label: 'My Portfolio', href: '/investor/portfolio', icon: Briefcase },
   { label: 'KYC & Suitability', href: '/investor/kyc-suitability', icon: CheckSquare },
   { label: 'Wallet & Settings', href: '/investor/wallet-settings', icon: Wallet },

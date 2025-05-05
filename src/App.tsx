@@ -21,6 +21,8 @@ import MyAdvisor from "./pages/investor/MyAdvisor";
 import Notifications from "./pages/investor/Notifications";
 import Documents from "./pages/investor/Documents";
 import HelpCenter from "./pages/investor/HelpCenter";
+import CompanyProfile from "./pages/investor/CompanyProfile";
+import SecondaryMarket from "./pages/investor/SecondaryMarket";
 
 // Advisor Pages
 import AdvisorDashboard from "./pages/advisor/AdvisorDashboard";
@@ -69,6 +71,8 @@ const App = () => (
           <Route path="/investor/notifications" element={<Notifications />} />
           <Route path="/investor/documents" element={<Documents />} />
           <Route path="/investor/help-center" element={<HelpCenter />} />
+          <Route path="/investor/company/:symbol" element={<CompanyProfile />} />
+          <Route path="/investor/secondary-market" element={<SecondaryMarket />} />
           
           {/* Advisor Routes */}
           <Route path="/advisor" element={<AdvisorDashboard />} />
