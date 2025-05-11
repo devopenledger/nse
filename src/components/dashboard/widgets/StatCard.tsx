@@ -6,6 +6,7 @@ import { cn } from '@/lib/utils';
 interface StatCardProps {
   title: string;
   value: string;
+  description?: string;  // Added description prop
   change?: {
     value: string;
     isPositive: boolean;
@@ -13,9 +14,10 @@ interface StatCardProps {
   period?: string;
   icon?: React.ReactNode;
   className?: string;
+  trend?: 'up' | 'down' | 'neutral';  // Added trend prop
 }
 
-const StatCard = ({ title, value, change, period, icon, className }: StatCardProps) => {
+const StatCard = ({ title, value, description, change, period, icon, className, trend }: StatCardProps) => {
   return (
     <Card className={cn("overflow-hidden", className)}>
       <CardContent className="p-6">
@@ -23,6 +25,10 @@ const StatCard = ({ title, value, change, period, icon, className }: StatCardPro
           <div>
             <p className="text-sm font-medium text-muted-foreground mb-1">{title}</p>
             <h3 className="text-2xl font-bold">{value}</h3>
+            
+            {description && (
+              <p className="text-sm text-muted-foreground mt-1">{description}</p>
+            )}
             
             {change && (
               <div className="flex items-center mt-1">
