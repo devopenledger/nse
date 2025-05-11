@@ -33,6 +33,10 @@ import TokenDetails from "./pages/investor/TokenDetails";
 import PositionDetails from "./pages/investor/PositionDetails";
 import NewsDetails from "./pages/investor/NewsDetails";
 import NotificationSettings from "./pages/investor/NotificationSettings";
+import ESGReports from "./pages/investor/ESGReports";
+import ESGReportDetail from "./pages/investor/ESGReportDetail";
+import CertificateVerification from "./pages/investor/CertificateVerification";
+import MarketTrends from "./pages/investor/MarketTrends";
 
 // Advisor Pages
 import AdvisorDashboard from "./pages/advisor/AdvisorDashboard";
@@ -45,6 +49,7 @@ import Analytics from "./pages/advisor/Analytics";
 // New Advisor Pages
 import ListingDetails from "./pages/advisor/ListingDetails";
 import AdvisorSettings from "./pages/advisor/AdvisorSettings";
+import EditListing from "./pages/advisor/EditListing";
 
 // Admin Pages
 import AdminDashboard from "./pages/admin/AdminDashboard";
@@ -94,6 +99,16 @@ const App = () => (
           <Route path="/investor/market-news" element={<MarketNews />} />
           <Route path="/investor/settings" element={<Settings />} />
           
+          {/* ESG Reports Routes */}
+          <Route path="/investor/esg-reports" element={<ESGReports />} />
+          <Route path="/investor/esg-reports/:type" element={<ESGReportDetail />} />
+          
+          {/* Certificate Verification Route */}
+          <Route path="/investor/certificate-verification" element={<CertificateVerification />} />
+          
+          {/* Market Trends Route */}
+          <Route path="/investor/market-trends" element={<MarketTrends />} />
+          
           {/* Newly Added Detail Routes */}
           <Route path="/investor/token/:symbol" element={<TokenDetails />} />
           <Route path="/investor/position/:symbol" element={<PositionDetails />} />
@@ -110,6 +125,7 @@ const App = () => (
           
           {/* New Advisor Routes */}
           <Route path="/advisor/listing/:id" element={<ListingDetails />} />
+          <Route path="/advisor/edit-listing/:id" element={<EditListing />} />
           <Route path="/advisor/settings" element={<AdvisorSettings />} />
           
           {/* Admin Routes */}

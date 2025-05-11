@@ -1,221 +1,312 @@
 
 import React from 'react';
 import DashboardLayout from '@/components/dashboard/DashboardLayout';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Button } from '@/components/ui/button';
-import { Switch } from '@/components/ui/switch';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
-import { Settings, Shield, Bell, Database, Clock } from 'lucide-react';
-import { Label } from '@/components/ui/label';
-import { Slider } from '@/components/ui/slider';
+import { Textarea } from '@/components/ui/textarea';
+import { Switch } from '@/components/ui/switch';
+import { Button } from '@/components/ui/button';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Save, Shield, BellRing, Database, Users, Activity } from 'lucide-react';
+import { useToast } from '@/components/ui/use-toast';
 
 const SystemSettings = () => {
+  const { toast } = useToast();
+  
+  const handleSave = () => {
+    toast({
+      title: "Settings saved",
+      description: "Your system settings have been successfully updated.",
+    });
+  };
+
   return (
     <DashboardLayout type="admin">
       <div className="space-y-6">
         <div className="flex items-center justify-between">
-          <h1 className="text-3xl font-bold flex items-center gap-2">
-            <Settings className="h-6 w-6" />
-            System Settings
-          </h1>
-          <Button>Save Changes</Button>
+          <h1 className="text-3xl font-bold">System Settings</h1>
+          <Button onClick={handleSave} className="gap-2">
+            <Save className="h-4 w-4" />
+            Save Changes
+          </Button>
         </div>
-
+        
         <Tabs defaultValue="general">
-          <TabsList className="mb-4">
-            <TabsTrigger value="general" className="flex items-center gap-1">
-              <Settings className="h-4 w-4" />
-              General
-            </TabsTrigger>
-            <TabsTrigger value="security" className="flex items-center gap-1">
-              <Shield className="h-4 w-4" />
-              Security
-            </TabsTrigger>
-            <TabsTrigger value="notifications" className="flex items-center gap-1">
-              <Bell className="h-4 w-4" />
-              Notifications
-            </TabsTrigger>
-            <TabsTrigger value="database" className="flex items-center gap-1">
-              <Database className="h-4 w-4" />
-              Database
-            </TabsTrigger>
+          <TabsList className="grid w-full grid-cols-4">
+            <TabsTrigger value="general">General</TabsTrigger>
+            <TabsTrigger value="security">Security</TabsTrigger>
+            <TabsTrigger value="notifications">Notifications</TabsTrigger>
+            <TabsTrigger value="api">API & Integrations</TabsTrigger>
           </TabsList>
-
-          <TabsContent value="general">
+          
+          <TabsContent value="general" className="space-y-6 mt-4">
             <Card>
               <CardHeader>
-                <CardTitle>General Settings</CardTitle>
+                <CardTitle>Platform Settings</CardTitle>
+                <CardDescription>Configure basic platform information and appearance</CardDescription>
               </CardHeader>
-              <CardContent className="space-y-6">
-                <div className="space-y-2">
-                  <Label htmlFor="system-name">System Name</Label>
-                  <Input id="system-name" defaultValue="Neo Sustainable Exchange" />
-                </div>
-                
-                <div className="space-y-2">
-                  <Label htmlFor="admin-email">Admin Email</Label>
-                  <Input id="admin-email" type="email" defaultValue="admin@nse.com" />
-                </div>
-                
-                <div className="space-y-2">
-                  <Label htmlFor="timezone">Default Timezone</Label>
-                  <Select defaultValue="UTC">
-                    <SelectTrigger id="timezone">
-                      <SelectValue placeholder="Select timezone" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="UTC">UTC</SelectItem>
-                      <SelectItem value="EST">Eastern Time (EST)</SelectItem>
-                      <SelectItem value="CST">Central Time (CST)</SelectItem>
-                      <SelectItem value="PST">Pacific Time (PST)</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-                
-                <div className="flex items-center justify-between">
-                  <div className="space-y-0.5">
-                    <Label>Maintenance Mode</Label>
-                    <div className="text-sm text-muted-foreground">
-                      Disable all user access during maintenance
+              <CardContent>
+                <div className="space-y-4">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium">Platform Name</label>
+                      <Input defaultValue="Neo Sustainable Exchange" />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium">Contact Email</label>
+                      <Input defaultValue="support@neosustainable.com" type="email" />
                     </div>
                   </div>
-                  <Switch />
+                  
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium">Platform Description</label>
+                    <Textarea 
+                      rows={4}
+                      defaultValue="A tokenized securities platform focused on ESG-compliant and halal-aligned assets."
+                    />
+                  </div>
+                  
+                  <div className="flex items-center justify-between py-2">
+                    <div>
+                      <h3 className="text-sm font-medium">Maintenance Mode</h3>
+                      <p className="text-sm text-muted-foreground">Temporarily disable access to the platform</p>
+                    </div>
+                    <Switch />
+                  </div>
+                  
+                  <div className="flex items-center justify-between py-2">
+                    <div>
+                      <h3 className="text-sm font-medium">Allow New Registrations</h3>
+                      <p className="text-sm text-muted-foreground">Allow users to create new accounts</p>
+                    </div>
+                    <Switch defaultChecked />
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+            
+            <Card>
+              <CardHeader>
+                <CardTitle>Regional Settings</CardTitle>
+                <CardDescription>Configure localization preferences</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-4">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium">Default Language</label>
+                      <Select defaultValue="en">
+                        <SelectTrigger>
+                          <SelectValue placeholder="Select language" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="en">English</SelectItem>
+                          <SelectItem value="ar">Arabic</SelectItem>
+                          <SelectItem value="ms">Malay</SelectItem>
+                          <SelectItem value="id">Indonesian</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium">Default Timezone</label>
+                      <Select defaultValue="utc">
+                        <SelectTrigger>
+                          <SelectValue placeholder="Select timezone" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="utc">UTC (Coordinated Universal Time)</SelectItem>
+                          <SelectItem value="asia_dubai">Asia/Dubai (GMT+4)</SelectItem>
+                          <SelectItem value="asia_kl">Asia/Kuala_Lumpur (GMT+8)</SelectItem>
+                          <SelectItem value="asia_jakarta">Asia/Jakarta (GMT+7)</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium">Date Format</label>
+                    <Select defaultValue="dmy">
+                      <SelectTrigger>
+                        <SelectValue placeholder="Select date format" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="dmy">DD/MM/YYYY</SelectItem>
+                        <SelectItem value="mdy">MM/DD/YYYY</SelectItem>
+                        <SelectItem value="ymd">YYYY/MM/DD</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
                 </div>
               </CardContent>
             </Card>
           </TabsContent>
-
-          <TabsContent value="security">
+          
+          <TabsContent value="security" className="space-y-6 mt-4">
             <Card>
               <CardHeader>
-                <CardTitle>Security Settings</CardTitle>
+                <div className="flex items-center gap-2">
+                  <Shield className="h-5 w-5 text-muted-foreground" />
+                  <div>
+                    <CardTitle>Security Settings</CardTitle>
+                    <CardDescription>Configure platform security measures</CardDescription>
+                  </div>
+                </div>
               </CardHeader>
-              <CardContent className="space-y-6">
-                <div className="flex items-center justify-between">
-                  <div className="space-y-0.5">
-                    <Label>Two-Factor Authentication</Label>
-                    <div className="text-sm text-muted-foreground">
-                      Require 2FA for all admin users
+              <CardContent>
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between py-2">
+                    <div>
+                      <h3 className="text-sm font-medium">Two-Factor Authentication</h3>
+                      <p className="text-sm text-muted-foreground">Require 2FA for all users</p>
                     </div>
+                    <Switch defaultChecked />
                   </div>
-                  <Switch defaultChecked />
-                </div>
-                
-                <div className="space-y-2">
-                  <div className="flex items-center justify-between">
-                    <Label>Password Strength</Label>
-                    <span className="text-sm font-medium">Strong</span>
-                  </div>
-                  <Slider defaultValue={[75]} max={100} step={25} />
-                </div>
-                
-                <div className="space-y-2">
-                  <Label htmlFor="session-timeout">Session Timeout (minutes)</Label>
-                  <Input id="session-timeout" type="number" defaultValue="30" />
-                </div>
-                
-                <div className="flex items-center justify-between">
-                  <div className="space-y-0.5">
-                    <Label>IP Restriction</Label>
-                    <div className="text-sm text-muted-foreground">
-                      Limit admin access to specific IP ranges
+                  
+                  <div className="flex items-center justify-between py-2">
+                    <div>
+                      <h3 className="text-sm font-medium">Password Rotation</h3>
+                      <p className="text-sm text-muted-foreground">Require password changes every 90 days</p>
                     </div>
+                    <Switch />
                   </div>
-                  <Switch />
+                  
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium">Session Timeout (minutes)</label>
+                    <Input type="number" defaultValue="30" />
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium">Maximum Login Attempts</label>
+                    <Input type="number" defaultValue="5" />
+                  </div>
+                  
+                  <div className="pt-4 border-t">
+                    <Button variant="outline" className="gap-2">
+                      <Activity className="h-4 w-4" />
+                      View Security Audit Logs
+                    </Button>
+                  </div>
                 </div>
               </CardContent>
             </Card>
           </TabsContent>
-
-          <TabsContent value="notifications">
+          
+          <TabsContent value="notifications" className="space-y-6 mt-4">
             <Card>
               <CardHeader>
-                <CardTitle>Notification Settings</CardTitle>
+                <div className="flex items-center gap-2">
+                  <BellRing className="h-5 w-5 text-muted-foreground" />
+                  <div>
+                    <CardTitle>Notification Settings</CardTitle>
+                    <CardDescription>Configure system notifications</CardDescription>
+                  </div>
+                </div>
               </CardHeader>
-              <CardContent className="space-y-6">
-                <div className="flex items-center justify-between">
-                  <div className="space-y-0.5">
-                    <Label>Email Alerts</Label>
-                    <div className="text-sm text-muted-foreground">
-                      Send critical system alerts via email
+              <CardContent>
+                <div className="space-y-4">
+                  <h3 className="text-sm font-medium">Email Notifications</h3>
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between py-2">
+                      <span className="text-sm">New User Registration</span>
+                      <Switch defaultChecked />
+                    </div>
+                    <div className="flex items-center justify-between py-2">
+                      <span className="text-sm">New Listing Submission</span>
+                      <Switch defaultChecked />
+                    </div>
+                    <div className="flex items-center justify-between py-2">
+                      <span className="text-sm">Compliance Alerts</span>
+                      <Switch defaultChecked />
+                    </div>
+                    <div className="flex items-center justify-between py-2">
+                      <span className="text-sm">System Updates</span>
+                      <Switch />
                     </div>
                   </div>
-                  <Switch defaultChecked />
-                </div>
-                
-                <div className="flex items-center justify-between">
-                  <div className="space-y-0.5">
-                    <Label>SMS Notifications</Label>
-                    <div className="text-sm text-muted-foreground">
-                      Send urgent alerts via SMS
-                    </div>
+                  
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium">Default Notification Email</label>
+                    <Input defaultValue="admin@neosustainable.com" type="email" />
                   </div>
-                  <Switch />
-                </div>
-                
-                <div className="space-y-2">
-                  <Label htmlFor="alert-threshold">Alert Threshold</Label>
-                  <Select defaultValue="high">
-                    <SelectTrigger id="alert-threshold">
-                      <SelectValue placeholder="Select threshold" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="low">Low (All Alerts)</SelectItem>
-                      <SelectItem value="medium">Medium</SelectItem>
-                      <SelectItem value="high">High (Critical Only)</SelectItem>
-                    </SelectContent>
-                  </Select>
                 </div>
               </CardContent>
             </Card>
           </TabsContent>
-
-          <TabsContent value="database">
+          
+          <TabsContent value="api" className="space-y-6 mt-4">
             <Card>
               <CardHeader>
-                <CardTitle>Database Settings</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-6">
-                <div className="space-y-2">
-                  <Label htmlFor="backup-frequency">Backup Frequency</Label>
-                  <Select defaultValue="daily">
-                    <SelectTrigger id="backup-frequency">
-                      <SelectValue placeholder="Select frequency" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="hourly">Hourly</SelectItem>
-                      <SelectItem value="daily">Daily</SelectItem>
-                      <SelectItem value="weekly">Weekly</SelectItem>
-                    </SelectContent>
-                  </Select>
+                <div className="flex items-center gap-2">
+                  <Database className="h-5 w-5 text-muted-foreground" />
+                  <div>
+                    <CardTitle>API Configuration</CardTitle>
+                    <CardDescription>Configure API settings and integrations</CardDescription>
+                  </div>
                 </div>
-                
-                <div className="flex items-center justify-between">
-                  <div className="space-y-0.5">
-                    <Label>Automatic Optimization</Label>
-                    <div className="text-sm text-muted-foreground">
-                      Periodically optimize database performance
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-4">
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium">API Key</label>
+                    <div className="flex items-center gap-2">
+                      <Input defaultValue="sk_live_***********************" type="password" />
+                      <Button variant="outline" size="sm">Regenerate</Button>
+                    </div>
+                    <p className="text-xs text-muted-foreground">Last regenerated on 12 May 2023</p>
+                  </div>
+                  
+                  <div className="flex items-center justify-between py-2">
+                    <div>
+                      <h3 className="text-sm font-medium">Enable API Access</h3>
+                      <p className="text-sm text-muted-foreground">Allow external systems to connect via API</p>
+                    </div>
+                    <Switch defaultChecked />
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <h3 className="text-sm font-medium">Connected Services</h3>
+                    <div className="border rounded-md">
+                      <div className="flex items-center justify-between p-4 border-b">
+                        <div className="flex items-center gap-2">
+                          <div className="h-8 w-8 bg-blue-100 rounded-md flex items-center justify-center">
+                            <Users className="h-4 w-4 text-blue-600" />
+                          </div>
+                          <div>
+                            <p className="text-sm font-medium">KYC Provider</p>
+                            <p className="text-xs text-muted-foreground">Last synced: 3 hours ago</p>
+                          </div>
+                        </div>
+                        <Switch defaultChecked />
+                      </div>
+                      <div className="flex items-center justify-between p-4 border-b">
+                        <div className="flex items-center gap-2">
+                          <div className="h-8 w-8 bg-green-100 rounded-md flex items-center justify-center">
+                            <Activity className="h-4 w-4 text-green-600" />
+                          </div>
+                          <div>
+                            <p className="text-sm font-medium">Market Data Provider</p>
+                            <p className="text-xs text-muted-foreground">Last synced: 10 minutes ago</p>
+                          </div>
+                        </div>
+                        <Switch defaultChecked />
+                      </div>
+                      <div className="flex items-center justify-between p-4">
+                        <div className="flex items-center gap-2">
+                          <div className="h-8 w-8 bg-purple-100 rounded-md flex items-center justify-center">
+                            <Shield className="h-4 w-4 text-purple-600" />
+                          </div>
+                          <div>
+                            <p className="text-sm font-medium">Compliance Service</p>
+                            <p className="text-xs text-muted-foreground">Last synced: 1 day ago</p>
+                          </div>
+                        </div>
+                        <Switch defaultChecked />
+                      </div>
                     </div>
                   </div>
-                  <Switch defaultChecked />
-                </div>
-                
-                <div className="space-y-2">
-                  <Label htmlFor="retention-period">Data Retention Period (days)</Label>
-                  <Input id="retention-period" type="number" defaultValue="90" />
-                </div>
-                
-                <div className="pt-4">
-                  <Button variant="outline" className="mr-2">
-                    <Clock className="mr-2 h-4 w-4" />
-                    Run Manual Backup
-                  </Button>
-                  <Button variant="outline">
-                    <Database className="mr-2 h-4 w-4" />
-                    Optimize Now
-                  </Button>
+                  
+                  <Button variant="outline">+ Connect New Service</Button>
                 </div>
               </CardContent>
             </Card>

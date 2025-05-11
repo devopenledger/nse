@@ -4,31 +4,32 @@ import DashboardLayout from '@/components/dashboard/DashboardLayout';
 import DataTable from '@/components/dashboard/widgets/DataTable';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import { Link } from 'react-router-dom';
 
 const mockListings = [
   {
-    id: 1,
+    id: "listing-001",
     tokenName: 'Green Energy Token',
     companyName: 'Eco Solutions Inc.',
     status: 'Approved',
     statusColor: 'bg-green-100 text-green-800'
   },
   {
-    id: 2,
+    id: "listing-002",
     tokenName: 'Sustainable Water Fund',
     companyName: 'Blue Resource Management',
     status: 'Pending',
     statusColor: 'bg-yellow-100 text-yellow-800'
   },
   {
-    id: 3,
+    id: "listing-003",
     tokenName: 'Ethical Agriculture Bond',
     companyName: 'Farm Future Ltd.',
     status: 'Approved',
     statusColor: 'bg-green-100 text-green-800'
   },
   {
-    id: 4,
+    id: "listing-004",
     tokenName: 'Solar Infrastructure Token',
     companyName: 'SunPower Ventures',
     status: 'Pending',
@@ -49,10 +50,14 @@ const columns = [
   {
     key: 'actions',
     title: 'Actions',
-    render: () => (
+    render: (value: any, record: any) => (
       <div className="flex gap-2">
-        <Button variant="outline" size="sm">Edit</Button>
-        <Button variant="outline" size="sm">Delete</Button>
+        <Button variant="outline" size="sm" asChild>
+          <Link to={`/advisor/edit-listing/${record.id}`}>Edit</Link>
+        </Button>
+        <Button variant="outline" size="sm" asChild>
+          <Link to={`/advisor/listing/${record.id}`}>View</Link>
+        </Button>
       </div>
     )
   }
@@ -64,6 +69,9 @@ const ManageListings = () => {
       <div className="space-y-6">
         <div className="flex justify-between items-center">
           <h1 className="text-3xl font-bold">Manage Listings</h1>
+          <Button asChild>
+            <Link to="/advisor/submit-listing">+ Add New Listing</Link>
+          </Button>
         </div>
         
         <DataTable
