@@ -7,7 +7,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
 import { Badge } from '@/components/ui/badge';
-import { ChevronLeft, Download, Info, CheckCircle, XCircle, AlertCircle, BarChart } from 'lucide-react';
+import { ChevronLeft, Download, Info, CheckCircle, XCircle, AlertCircle, BarChart, Shield, Users } from 'lucide-react';
 
 const ESGReportDetail = () => {
   const { type = 'environmental' } = useParams<{ type: string }>();
@@ -23,7 +23,7 @@ const ESGReportDetail = () => {
           icon: <div className="h-10 w-10 rounded-full bg-green-100 flex items-center justify-center">
                   <BarChart className="h-5 w-5 text-green-600" />
                 </div>,
-          description: 'Your portfolio's environmental score measures the environmental impact and sustainability efforts of your investments.',
+          description: "Your portfolio\'s environmental score measures the environmental impact and sustainability efforts of your investments.",
           positives: [
             'Carbon emissions 32% below benchmark',
             'Strong renewable energy investments',
@@ -43,7 +43,7 @@ const ESGReportDetail = () => {
           icon: <div className="h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center">
                   <Users className="h-5 w-5 text-blue-600" />
                 </div>,
-          description: 'Your portfolio's social score evaluates labor practices, community relations, and social contribution of your investments.',
+          description: "Your portfolio\'s social score evaluates labor practices, community relations, and social contribution of your investments.",
           positives: [
             'Strong workplace safety records',
             'Fair labor practice commitments',
@@ -63,7 +63,7 @@ const ESGReportDetail = () => {
           icon: <div className="h-10 w-10 rounded-full bg-purple-100 flex items-center justify-center">
                   <Shield className="h-5 w-5 text-purple-600" />
                 </div>,
-          description: 'Your portfolio's governance score assesses the quality of corporate governance, ethics, and transparency in your investments.',
+          description: "Your portfolio\'s governance score assesses the quality of corporate governance, ethics, and transparency in your investments.",
           positives: [
             'Independent board structure',
             'Transparent financial reporting',
@@ -83,7 +83,7 @@ const ESGReportDetail = () => {
           icon: <div className="h-10 w-10 rounded-full bg-green-100 flex items-center justify-center">
                   <BarChart className="h-5 w-5 text-green-600" />
                 </div>,
-          description: 'Your portfolio's environmental score measures the environmental impact and sustainability efforts of your investments.',
+          description: "Your portfolio\'s environmental score measures the environmental impact and sustainability efforts of your investments.",
           positives: [
             'Carbon emissions 32% below benchmark',
             'Strong renewable energy investments',

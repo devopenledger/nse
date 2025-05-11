@@ -6,7 +6,7 @@ import {
   BarChart3, Home, User, Briefcase, Settings, FileText, Users, Shield, 
   AlertTriangle, FilePlus, List, Building, CheckSquare, Wallet, FileCheck, 
   Bell, HelpCircle, BookOpen, TrendingUp, Clock, LineChart, Activity, 
-  Award, Certificate
+  Award, FileSpreadsheet
 } from 'lucide-react';
 
 interface SidebarProps {
@@ -68,7 +68,7 @@ const InvestorNavItems: NavItem[] = [
   {
     label: 'Certificate Verification',
     href: '/investor/certificate-verification',
-    icon: Certificate
+    icon: FileSpreadsheet
   },
   {
     label: 'KYC & Suitability',
