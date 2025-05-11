@@ -57,19 +57,19 @@ const InvestorAnalytics = () => {
             value="+15.2%" 
             description="Year-to-date" 
             trend="up"
-            icon={TrendingUp} 
+            icon={<TrendingUp className="h-5 w-5" />} 
           />
           <StatCard 
             title="ESG Score" 
             value="A+" 
             description="Portfolio average" 
-            icon={PieChart} 
+            icon={<PieChart className="h-5 w-5" />} 
           />
           <StatCard 
             title="Next Dividend" 
             value="$245.30" 
             description="Expected on Sep 15" 
-            icon={Calendar} 
+            icon={<Calendar className="h-5 w-5" />} 
           />
         </div>
 

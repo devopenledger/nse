@@ -19,7 +19,7 @@ const newsItems = [
     time: '10:30 AM',
     category: 'company',
     relatedSymbol: 'GSOL',
-    impact: 'positive',
+    impact: 'positive' as const,
     isBookmarked: true
   },
   {
@@ -30,7 +30,7 @@ const newsItems = [
     date: '2023-09-19',
     time: '3:15 PM',
     category: 'regulatory',
-    impact: 'neutral',
+    impact: 'neutral' as const,
     isBookmarked: false
   },
   {
@@ -42,7 +42,7 @@ const newsItems = [
     time: '9:45 AM',
     category: 'company',
     relatedSymbol: 'CLEF',
-    impact: 'positive',
+    impact: 'positive' as const,
     isBookmarked: true
   },
   {
@@ -54,7 +54,7 @@ const newsItems = [
     time: '11:20 AM',
     category: 'company',
     relatedSymbol: 'EWTR',
-    impact: 'negative',
+    impact: 'negative' as const,
     isBookmarked: false
   },
   {
@@ -65,7 +65,7 @@ const newsItems = [
     date: '2023-09-16',
     time: '2:00 PM',
     category: 'market',
-    impact: 'positive',
+    impact: 'positive' as const,
     isBookmarked: false
   },
   {
@@ -77,7 +77,7 @@ const newsItems = [
     time: '10:00 AM',
     category: 'company',
     relatedSymbol: 'SAGR',
-    impact: 'neutral',
+    impact: 'neutral' as const,
     isBookmarked: false
   }
 ];
@@ -189,7 +189,7 @@ interface NewsCardProps {
 }
 
 const NewsCard = ({ item }: NewsCardProps) => {
-  const getImpactBadge = (impact: string) => {
+  const getImpactBadge = (impact: 'positive' | 'negative' | 'neutral') => {
     switch (impact) {
       case 'positive': return 'outline';
       case 'negative': return 'destructive';
