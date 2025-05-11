@@ -29,6 +29,10 @@ import InvestorAnalytics from "./pages/investor/InvestorAnalytics";
 import TransactionHistory from "./pages/investor/TransactionHistory";
 import MarketNews from "./pages/investor/MarketNews";
 import Settings from "./pages/investor/Settings";
+import TokenDetails from "./pages/investor/TokenDetails";
+import PositionDetails from "./pages/investor/PositionDetails";
+import NewsDetails from "./pages/investor/NewsDetails";
+import NotificationSettings from "./pages/investor/NotificationSettings";
 
 // Advisor Pages
 import AdvisorDashboard from "./pages/advisor/AdvisorDashboard";
@@ -89,6 +93,12 @@ const App = () => (
           <Route path="/investor/transaction-history" element={<TransactionHistory />} />
           <Route path="/investor/market-news" element={<MarketNews />} />
           <Route path="/investor/settings" element={<Settings />} />
+          
+          {/* Newly Added Detail Routes */}
+          <Route path="/investor/token/:symbol" element={<TokenDetails />} />
+          <Route path="/investor/position/:symbol" element={<PositionDetails />} />
+          <Route path="/investor/news/:id" element={<NewsDetails />} />
+          <Route path="/investor/notification-settings" element={<NotificationSettings />} />
           
           {/* Advisor Routes */}
           <Route path="/advisor" element={<AdvisorDashboard />} />
