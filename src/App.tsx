@@ -24,6 +24,12 @@ import HelpCenter from "./pages/investor/HelpCenter";
 import CompanyProfile from "./pages/investor/CompanyProfile";
 import SecondaryMarket from "./pages/investor/SecondaryMarket";
 
+// New Investor Pages
+import InvestorAnalytics from "./pages/investor/InvestorAnalytics";
+import TransactionHistory from "./pages/investor/TransactionHistory";
+import MarketNews from "./pages/investor/MarketNews";
+import Settings from "./pages/investor/Settings";
+
 // Advisor Pages
 import AdvisorDashboard from "./pages/advisor/AdvisorDashboard";
 import SubmitListing from "./pages/advisor/SubmitListing";
@@ -31,6 +37,10 @@ import ManageListings from "./pages/advisor/ManageListings";
 import ClientManagement from "./pages/advisor/ClientManagement";
 import OfficeManagement from "./pages/advisor/OfficeManagement";
 import Analytics from "./pages/advisor/Analytics";
+
+// New Advisor Pages
+import ListingDetails from "./pages/advisor/ListingDetails";
+import AdvisorSettings from "./pages/advisor/AdvisorSettings";
 
 // Admin Pages
 import AdminDashboard from "./pages/admin/AdminDashboard";
@@ -74,6 +84,12 @@ const App = () => (
           <Route path="/investor/company/:symbol" element={<CompanyProfile />} />
           <Route path="/investor/secondary-market" element={<SecondaryMarket />} />
           
+          {/* New Investor Routes */}
+          <Route path="/investor/analytics" element={<InvestorAnalytics />} />
+          <Route path="/investor/transaction-history" element={<TransactionHistory />} />
+          <Route path="/investor/market-news" element={<MarketNews />} />
+          <Route path="/investor/settings" element={<Settings />} />
+          
           {/* Advisor Routes */}
           <Route path="/advisor" element={<AdvisorDashboard />} />
           <Route path="/advisor/submit-listing" element={<SubmitListing />} />
@@ -81,6 +97,10 @@ const App = () => (
           <Route path="/advisor/client-management" element={<ClientManagement />} />
           <Route path="/advisor/office-management" element={<OfficeManagement />} />
           <Route path="/advisor/analytics" element={<Analytics />} />
+          
+          {/* New Advisor Routes */}
+          <Route path="/advisor/listing/:id" element={<ListingDetails />} />
+          <Route path="/advisor/settings" element={<AdvisorSettings />} />
           
           {/* Admin Routes */}
           <Route path="/admin" element={<AdminDashboard />} />

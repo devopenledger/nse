@@ -21,7 +21,9 @@ import {
   Bell,
   HelpCircle,
   BookOpen,
-  TrendingUp
+  TrendingUp,
+  Clock,
+  LineChart
 } from 'lucide-react';
 
 interface SidebarProps {
@@ -39,12 +41,16 @@ const InvestorNavItems: NavItem[] = [
   { label: 'Initial Offers', href: '/investor/investments', icon: BarChart3 },
   { label: 'Secondary Market', href: '/investor/secondary-market', icon: TrendingUp },
   { label: 'My Portfolio', href: '/investor/portfolio', icon: Briefcase },
+  { label: 'Transaction History', href: '/investor/transaction-history', icon: Clock },
+  { label: 'Analytics', href: '/investor/analytics', icon: LineChart },
+  { label: 'Market News', href: '/investor/market-news', icon: BookOpen },
   { label: 'KYC & Suitability', href: '/investor/kyc-suitability', icon: CheckSquare },
   { label: 'Wallet & Settings', href: '/investor/wallet-settings', icon: Wallet },
   { label: 'My Advisor', href: '/investor/my-advisor', icon: User },
   { label: 'Notifications', href: '/investor/notifications', icon: Bell },
   { label: 'Documents', href: '/investor/documents', icon: FileText },
   { label: 'Help Center', href: '/investor/help-center', icon: HelpCircle },
+  { label: 'Settings', href: '/investor/settings', icon: Settings },
 ];
 
 const AdvisorNavItems: NavItem[] = [
@@ -54,6 +60,7 @@ const AdvisorNavItems: NavItem[] = [
   { label: 'Client Management', href: '/advisor/client-management', icon: Users },
   { label: 'Office & Team', href: '/advisor/office-management', icon: Building },
   { label: 'Analytics', href: '/advisor/analytics', icon: BarChart3 },
+  { label: 'Settings', href: '/advisor/settings', icon: Settings },
 ];
 
 const AdminNavItems: NavItem[] = [
