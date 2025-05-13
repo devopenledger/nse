@@ -1,4 +1,3 @@
-
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -52,6 +51,14 @@ import AdvisorSettings from "./pages/advisor/AdvisorSettings";
 import EditListing from "./pages/advisor/EditListing";
 import NewListingWizard from "./pages/advisor/NewListingWizard";
 import ListingSubmittedPage from "./pages/advisor/ListingSubmittedPage";
+
+// New Team Member Pages
+import TeamMemberOnboarding from "./pages/advisor/team/TeamMemberOnboarding";
+import TeamMemberList from "./pages/advisor/team/TeamMemberList";
+import TeamMemberDetails from "./pages/advisor/team/TeamMemberDetails";
+import TeamMemberSuccess from "./pages/advisor/team/TeamMemberSuccess";
+import TeamMemberPermissions from "./pages/advisor/team/TeamMemberPermissions";
+import TeamMemberInvite from "./pages/advisor/team/TeamMemberInvite";
 
 // Admin Pages
 import AdminDashboard from "./pages/admin/AdminDashboard";
@@ -131,6 +138,14 @@ const App = () => (
           <Route path="/advisor/settings" element={<AdvisorSettings />} />
           <Route path="/advisor/new-listing" element={<NewListingWizard />} />
           <Route path="/advisor/listing-submitted" element={<ListingSubmittedPage />} />
+          
+          {/* Team Member Routes */}
+          <Route path="/advisor/team-members" element={<TeamMemberList />} />
+          <Route path="/advisor/team-member/onboarding" element={<TeamMemberOnboarding />} />
+          <Route path="/advisor/team-member/:id" element={<TeamMemberDetails />} />
+          <Route path="/advisor/team-member/success" element={<TeamMemberSuccess />} />
+          <Route path="/advisor/team-member/permissions" element={<TeamMemberPermissions />} />
+          <Route path="/advisor/team-member/invite" element={<TeamMemberInvite />} />
           
           {/* Admin Routes */}
           <Route path="/admin" element={<AdminDashboard />} />
