@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Progress } from '@/components/ui/progress';
-import { FileText, Download, ChevronRight, BarChart, TrendingUp, Shield } from 'lucide-react';
+import { FileText, Download, ChevronRight, BarChart, TrendingUp, Shield, Users } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const ESGReports = () => {
