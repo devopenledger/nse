@@ -70,7 +70,7 @@ const ManageListings = () => {
         <div className="flex justify-between items-center">
           <h1 className="text-3xl font-bold">Manage Listings</h1>
           <Button asChild>
-            <Link to="/advisor/submit-listing">+ Add New Listing</Link>
+            <Link to="/advisor/new-listing">+ Add New Listing</Link>
           </Button>
         </div>
         

@@ -1,4 +1,3 @@
-
 import React from 'react';
 import DashboardLayout from '@/components/dashboard/DashboardLayout';
 import StatCard from '@/components/dashboard/widgets/StatCard';
@@ -8,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Users, FileCheck, FilePlus, Briefcase, TrendingUp } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 // Mock data
 const listingsData = [
@@ -181,7 +181,7 @@ const AdvisorDashboard = () => {
           <div className="mt-4 md:mt-0 space-x-2">
             <Button variant="outline">Activity Report</Button>
             <Button asChild>
-              <a href="/advisor/new-listing">Submit New Listing</a>
+              <Link to="/advisor/new-listing">Submit New Listing</Link>
             </Button>
           </div>
         </div>

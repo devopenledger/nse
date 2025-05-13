@@ -50,6 +50,8 @@ import Analytics from "./pages/advisor/Analytics";
 import ListingDetails from "./pages/advisor/ListingDetails";
 import AdvisorSettings from "./pages/advisor/AdvisorSettings";
 import EditListing from "./pages/advisor/EditListing";
+import NewListingWizard from "./pages/advisor/NewListingWizard";
+import ListingSubmittedPage from "./pages/advisor/ListingSubmittedPage";
 
 // Admin Pages
 import AdminDashboard from "./pages/admin/AdminDashboard";
@@ -127,6 +129,8 @@ const App = () => (
           <Route path="/advisor/listing/:id" element={<ListingDetails />} />
           <Route path="/advisor/edit-listing/:id" element={<EditListing />} />
           <Route path="/advisor/settings" element={<AdvisorSettings />} />
+          <Route path="/advisor/new-listing" element={<NewListingWizard />} />
+          <Route path="/advisor/listing-submitted" element={<ListingSubmittedPage />} />
           
           {/* Admin Routes */}
           <Route path="/admin" element={<AdminDashboard />} />
